@@ -1,0 +1,52 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Realisations index{% endblock %}
+
+{% block body %}
+    <div class="container pl-0">
+        <!--Header-->
+        <div class="header peach-gradient mb-3">
+            <div class="row d-flex justify-content-center">
+                <h3 class="white-text mb-0 py-5 font-weight-bold">Images rénovations intérieurs</h3>
+            </div>
+        </div>
+        <a class="pl-2 black-text mb-0 py-5 font-weight-bold" href="{{ path('realisations_new') }}"><i class="fas fa-plus"></i> Ajouter une image</a>
+        <!--Header-->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Section</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for realisation in realisations %}
+                <tr>
+                    <td>{{ realisation.title }}</td>
+                    <td>{{ realisation.description }}</td>
+                    <td>{{ realisation.section }}</td>
+                    <td>
+                        {% for image in realisation.images %}
+                            <div>
+                                <img src="{{ asset('/uploads/'~image.name) }}" alt="" width="80">
+                            </div>
+                        {% endfor %}
+                    </td>
+
+                    <td>
+                        <a class="" href="{{ path('realisations_show', {'id': realisation.id}) }}"><i class="pl-1 pr-1 far fa-eye"></i></a>
+                        <a href="{{ path('realisations_edit', {'id': realisation.id}) }}"><i class="pl-1 pr-1 fas fa-pencil-alt pr-xl-2 pr-md-0 pr-2"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

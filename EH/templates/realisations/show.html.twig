@@ -1,0 +1,41 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Realisations{% endblock %}
+
+{% block body %}
+    <div class="container pl-0">
+        <!--Header-->
+        <div class="header peach-gradient mb-3">
+            <div class="row d-flex justify-content-center">
+                <h3 class="white-text mb-0 py-5 font-weight-bold">Visualisation</h3>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card">
+                <div class="card-body mx-4">
+                    <div class="md-form row">
+                        <div class="col-5">
+                            <p>{{ realisation.title }}</p>
+                            <p>{{ realisation.description }}</p>
+                            <p>{{ realisation.section }}</p>
+                        </div>
+                        <div class="col-7">
+                            {% for image in realisation.images %}
+                                <div>
+                                    <img src="{{ asset('/uploads/'~image.name) }}" alt="" width="500">
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pr-2 row justify-content-end">
+                <button class="btn">
+                    <a href="{{ path('realisations_edit', {'id': realisation.id}) }}"><i class="fas fa-pencil-alt prefix black-text"></i></a>
+                </button>
+                {{ include('realisations/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}New Realisations{% endblock %}
+
+{% block body %}
+    <div class="container pl-0">
+        <!--Header-->
+        <div class="header peach-gradient mb-3">
+            <div class="row d-flex justify-content-center">
+                <h3 class="white-text mb-0 py-5 font-weight-bold">Ajouter une image</h3>
+            </div>
+        </div>
+
+    	{{ include('realisations/_form.html.twig') }}
+	</div>
+{% endblock %}
