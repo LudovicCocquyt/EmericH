@@ -33,6 +33,11 @@ class User implements UserInterface, \Serializable
     private $email;
 
     /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+
+    /**
      * @ORM\Column(name="is_active", type="boolean")
      */
     private $isActive;
@@ -49,6 +54,13 @@ class User implements UserInterface, \Serializable
         return $this->username;
     }
 
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
     public function getSalt()
     {
         // you *may* need a real salt depending on your encoder
@@ -56,14 +68,72 @@ class User implements UserInterface, \Serializable
         return null;
     }
 
-    public function getPassword()
+    public function getEmail(): ?string
     {
-        return $this->password;
+        return $this->email;
     }
 
-    public function getRoles()
+    public function setEmail(string $email): self
     {
-        return array('ROLE_USER');
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getIsActif(): ?bool
+    {
+        return $this->isActif;
+    }
+
+    public function setIsActif(bool $isActif): self
+    {
+        $this->isActif = $isActif;
+
+        return $this;
+    }
+    
+    /**
+     * @see UserInterface
+     */
+    public function getPassword(): string
+    {
+        return (string) $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function removeRoles(array $roles): self
+    {
+        if (in_array($roles[0], $this->getRoles())) {
+            $this->roles = array_diff($this->roles,$roles);
+        }
+        return $this;
+        // $roles = $this->roles;
+        // $roles[] = 'ROLE_USER';
     }
 
     public function eraseCredentials()
