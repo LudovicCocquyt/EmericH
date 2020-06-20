@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
 {% block title %}Contenu statique{% endblock %}
 
 {% block body %}
-    <div class="container">
+    <div class="container pl-0">
         <!--Header-->
         <div class="header peach-gradient mb-3">
             <div class="row d-flex justify-content-center">
@@ -15,16 +15,15 @@
         <table  class="table table-striped">
             <thead>
                 <tr>
-                    <th>UpdatedAt</th>
-                    <th>Content</th>
-                    <th>actions</th>
+                    <th>Derniére modification</th>
+                    <th>Contenu</th>
                 </tr>
             </thead>
             <tbody>
             {% for static_content in static_contents %}
                 <tr>
                     <td>{{ static_content.updatedAt ? static_content.updatedAt|date('d-m-Y H:i:s') : '' }}</td>
-                    <td>{{ static_content.content }}</td>
+                    <td>{{ static_content.content | slice(0, 120) }}</td>
                     <td>
                         {# <a href="{{ path('static_content_show', {'id': static_content.id}) }}">show</a> #}
                         <a href="{{ path('static_content_edit', {'id': static_content.id}) }}"><i class="fas fa-pencil-alt pr-xl-2 pr-md-0 pr-2"></i></a>
