@@ -26,45 +26,6 @@ class StaticContentController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="static_content_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $staticContent = new StaticContent();
-        $form = $this->createForm(StaticContentType::class, $staticContent);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $staticContent->setCreatedAt(new \DateTime('now'));
-            $staticContent->setCreatedBy('ludo');
-            $staticContent->setUpdatedAt(new \DateTime('now'));
-            $staticContent->setUpdatedBy('ludo');
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($staticContent);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('static_content_index');
-        }
-
-        return $this->render('static_content/new.html.twig', [
-            'static_content' => $staticContent,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="static_content_show", methods={"GET"})
-     */
-    public function show(StaticContent $staticContent): Response
-    {
-        return $this->render('static_content/show.html.twig', [
-            'static_content' => $staticContent,
-        ]);
-    }
-
-    /**
      * @Route("/{id}/edit", name="static_content_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, StaticContent $staticContent): Response
@@ -84,17 +45,56 @@ class StaticContentController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="static_content_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, StaticContent $staticContent): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$staticContent->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($staticContent);
-            $entityManager->flush();
-        }
+    // /**
+    //  * @Route("/profile/new", name="static_content_new", methods={"GET","POST"})
+    //  */
+    // public function new(Request $request): Response
+    // {
+    //     $staticContent = new StaticContent();
+    //     $form = $this->createForm(StaticContentType::class, $staticContent);
+    //     $form->handleRequest($request);
 
-        return $this->redirectToRoute('static_content_index');
-    }
+    //     if ($form->isSubmitted() && $form->isValid()) {
+
+    //         $staticContent->setCreatedAt(new \DateTime('now'));
+    //         $staticContent->setCreatedBy('ludo');
+    //         $staticContent->setUpdatedAt(new \DateTime('now'));
+    //         $staticContent->setUpdatedBy('ludo');
+
+    //         $entityManager = $this->getDoctrine()->getManager();
+    //         $entityManager->persist($staticContent);
+    //         $entityManager->flush();
+
+    //         return $this->redirectToRoute('static_content_index');
+    //     }
+
+    //     return $this->render('static_content/new.html.twig', [
+    //         'static_content' => $staticContent,
+    //         'form' => $form->createView(),
+    //     ]);
+    // }
+
+    /**
+     * @Route("/profile/{id}", name="static_content_show", methods={"GET"})
+     */
+    // public function show(StaticContent $staticContent): Response
+    // {
+    //     return $this->render('static_content/show.html.twig', [
+    //         'static_content' => $staticContent,
+    //     ]);
+    // }
+
+    // /**
+    //  * @Route("/{id}", name="static_content_delete", methods={"DELETE"})
+    //  */
+    // public function delete(Request $request, StaticContent $staticContent): Response
+    // {
+    //     if ($this->isCsrfTokenValid('delete'.$staticContent->getId(), $request->request->get('_token'))) {
+    //         $entityManager = $this->getDoctrine()->getManager();
+    //         $entityManager->remove($staticContent);
+    //         $entityManager->flush();
+    //     }
+
+    //     return $this->redirectToRoute('static_content_index');
+    // }
 }

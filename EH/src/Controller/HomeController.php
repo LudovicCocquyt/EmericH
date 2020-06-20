@@ -23,29 +23,4 @@ class HomeController extends AbstractController
         		'StaticContents' => $staticContentRepository->findAll(),
     	]);
 	}
-
-    // /*
-    //  * @Route("/administration", name="adm_page")
-    //  */
-    // public function homeAdm(UserRepository $userRepository, TeamRepository $teamRepository, LineUpRepository $lineUpRepository)
-    // {
-    //     if ($_POST) {
-    //         $teamInfo = $teamRepository->findBy(['name'=> $_POST['infoTeam']])[0];
-    //         $userInfo = $teamInfo->getUser()->toArray();
-    //         return $this->render('admin/homeAdmin.html.twig', [
-    //                     // 'session' => $session,
-    //                     'lineUps' => $lineUpRepository->findAll(),
-    //                     'teams'   => $teamRepository->findAll(),
-    //                     'users'   => $userRepository->findAll(),
-    //                     'teamInfo'=> $teamInfo,
-    //                     'userInfos' => $userInfo
-    //         ]);
-    //     }
-    //     return $this->render('admin/homeAdmin.html.twig', [
-    //                     // 'session' => $session,
-    //                     'lineUps' => $lineUpRepository->findAll(),
-    //                     'teams'   => $teamRepository->findAll(),
-    //                     'users'   => $userRepository->findAll()
-    //     ]);
-    // }
 }
