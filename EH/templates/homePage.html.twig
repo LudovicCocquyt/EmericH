@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+{# IMG #}
+<div>
+	<img class="w-100" src="/img/logoban_1.png" style="height: 30em; padding-top: 50px;">
+</div>
+{# end img #}
+
+{# qui suis-je #}
+<div id="presentation" style="height: 25em; background-color: #0862f1; padding-top: 20px;">
+	{% for StaticContent in StaticContents|slice(0, 1) %}
+	    <h3 style="
+		    padding-left: 270px;
+		    padding-top: 50px;
+		    padding-right: 270px;
+		    text-align: center;"
+	        class="card-title text-white">{{ StaticContent.content }}</h3>
+	{% endfor %}
+	
+	{% for StaticContent in StaticContents|slice(2, 2) %}
+	    <h5 style="
+	    	text-align: center;
+		    font-size: 27px;
+		    padding-top: 50px;
+		    font-weight: bold;" 
+		    class="card-title text-white">{{ StaticContent.content }}</h5>
+	{% endfor %}
+
+	{% for StaticContent in StaticContents|slice(1, 1) %}
+	    <h5 style="
+		    padding-bottom: 50px;
+		    padding-top: 50px;
+	    	padding-left: 270px;
+		    padding-right: 270px;
+		    text-align: center;"
+		    class="card-title text-white">{{ StaticContent.content }}</h5>
+	{% endfor %}
+
+</div>
+{# end qui suis-je #}
+
+{# galerie #}
+{% include 'modal.html.twig' %}
+{# end galerie #}
+
+{# contact #}
+{% include 'contact.html.twig' %}
+{# end contact #}
+
+{# maps #}
+{% include 'maps.html.twig' %}
+{# end maps #}
+
+{# footer #}
+{% include 'footer.html.twig' %}
+{# end footer #}
+
+{% endblock %}
