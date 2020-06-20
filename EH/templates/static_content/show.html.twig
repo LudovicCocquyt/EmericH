@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}StaticContent{% endblock %}
+
+{% block body %}
+    <h1>StaticContent</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ static_content.id }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ static_content.createdAt ? static_content.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>CreatedBy</th>
+                <td>{{ static_content.createdBy }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ static_content.updatedAt ? static_content.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedBy</th>
+                <td>{{ static_content.updatedBy }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ static_content.content }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('static_content_index') }}">back to list</a>
+
+    <a href="{{ path('static_content_edit', {'id': static_content.id}) }}">edit</a>
+
+    {{ include('static_content/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contenu statique{% endblock %}
+
+{% block body %}
+	<div class="container text-center">
+	    <!--Header-->
+        <div class="header peach-gradient m-3">
+            <div class="row d-flex justify-content-center">
+          		<h3 class="white-text mb-0 py-5 font-weight-bold">Contenu statique</h3>
+        	</div>
+        </div>
+        <!--Header-->
+
+	    {{ include('static_content/_form.html.twig') }}
+
+	    {# <a href="{{ path('static_content_index') }}">back to list</a> #}
+    </div>
+{% endblock %}

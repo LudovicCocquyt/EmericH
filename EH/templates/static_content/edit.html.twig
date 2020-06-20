@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit StaticContent{% endblock %}
+
+{% block body %}
+    <h1>Edit StaticContent</h1>
+
+    {{ include('static_content/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    {# <a href="{{ path('static_content_index') }}">back to list</a> #}
+
+    {# {{ include('static_content/_delete_form.html.twig') }} #}
+{% endblock %}

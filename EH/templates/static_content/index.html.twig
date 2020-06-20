@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contenu statique{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <!--Header-->
+        <div class="header peach-gradient mb-3">
+            <div class="row d-flex justify-content-center">
+                <h3 class="white-text mb-0 py-5 font-weight-bold">Liste des contenus statiques</h3>
+            </div>
+        </div>
+        <!--Header-->
+
+        <table  class="table table-striped">
+            <thead>
+                <tr>
+                    <th>UpdatedAt</th>
+                    <th>Content</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for static_content in static_contents %}
+                <tr>
+                    <td>{{ static_content.updatedAt ? static_content.updatedAt|date('d-m-Y H:i:s') : '' }}</td>
+                    <td>{{ static_content.content }}</td>
+                    <td>
+                        {# <a href="{{ path('static_content_show', {'id': static_content.id}) }}">show</a> #}
+                        <a href="{{ path('static_content_edit', {'id': static_content.id}) }}"><i class="fas fa-pencil-alt pr-xl-2 pr-md-0 pr-2"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        {# <a href="{{ path('static_content_new') }}">Create new</a> #}
+    </div>
+{% endblock %}
