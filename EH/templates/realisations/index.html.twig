@@ -36,8 +36,17 @@
                     </td>
 
                     <td>
-                        <a class="" href="{{ path('realisations_show', {'id': realisation.id}) }}"><i class="pl-1 pr-1 far fa-eye"></i></a>
-                        <a href="{{ path('realisations_edit', {'id': realisation.id}) }}"><i class="pl-1 pr-1 fas fa-pencil-alt pr-xl-2 pr-md-0 pr-2"></i></a>
+                        <div class="row">
+                            <button class="m-1" style="border: solid transparent; background-color: transparent;"><a class="" href="{{ path('realisations_show', {'id': realisation.id}) }}"><i class="pl-1 pr-1 far fa-eye"></i></a></button>
+
+                            <button class="m-1" style="border: solid transparent; background-color: transparent;"><a href="{{ path('realisations_edit', {'id': realisation.id}) }}"><i class="pl-1 pr-1 fas fa-pencil-alt pr-xl-2 pr-md-0 pr-2"></i></a></button>
+                            
+                            <form class="m-1" method="post" class="text-right mr-5" action="{{ path('realisations_delete_image', {'id': realisation.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ realisation.id) }}">
+                                <button style="border: solid transparent; background-color: transparent;"><i class="fas fa-trash-alt red-text"></i></button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             {% else %}

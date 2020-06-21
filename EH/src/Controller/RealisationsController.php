@@ -8,6 +8,7 @@ use App\Form\RealisationsType;
 use App\Repository\RealisationsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -121,28 +122,28 @@ class RealisationsController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/{id}", name="realisations_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, Realisations $realisation): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$realisation->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($realisation);
-            $entityManager->flush();
-        }
+    // /**
+    //  * @Route("/{id}", name="realisations_delete", methods={"DELETE"})
+    //  */
+    // public function delete(Request $request, Realisations $realisation): Response
+    // {
+    //     if ($this->isCsrfTokenValid('delete'.$realisation->getId(), $request->request->get('_token'))) {
+    //         $entityManager = $this->getDoctrine()->getManager();
+    //         $entityManager->remove($realisation);
+    //         $entityManager->flush();
+    //     }
 
-        return $this->redirectToRoute('realisations_index');
-    }
+    //     return $this->redirectToRoute('realisations_index');
+    // }
 
     /**
      * @Route("/supprime/image/{id}", name="realisations_delete_image", methods={"DELETE"})
      */
-    public function deleteImage(Images $image, Request $request){
+    public function deleteImage(Images $image, Request $request, Realisations $realisation){
         $data = json_decode($request->getContent(), true);
 
         // On vérifie si le token est valide
-        if($this->isCsrfTokenValid('delete'.$image->getId(), $data['_token'])){
+        //if($this->isCsrfTokenValid('delete'.$image->getId(), $data['_token'])){
             // On récupère le nom de l'image
             $nom = $image->getName();
             // On supprime le fichier
@@ -151,13 +152,13 @@ class RealisationsController extends AbstractController
             // On supprime l'entrée de la base
             $em = $this->getDoctrine()->getManager();
             $em->remove($image);
-            $em->flush();
 
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->remove($realisation);
+
+            $em->flush();
             // On répond en json
-            return new JsonResponse(['success' => 1]);
-        }else{
-            return new JsonResponse(['error' => 'Token Invalide'], 400);
-        }
+            return $this->redirectToRoute('realisations_index');
     }
 
 }
