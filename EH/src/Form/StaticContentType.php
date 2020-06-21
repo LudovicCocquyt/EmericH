@@ -11,7 +11,8 @@ class StaticContentType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('content');
+        $builder->add('content')
+                ->add('title');
     }
 
     public function configureOptions(OptionsResolver $resolver)

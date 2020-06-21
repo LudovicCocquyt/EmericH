@@ -1,13 +1,18 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
 {% block title %}Edit StaticContent{% endblock %}
 
 {% block body %}
-    <h1>Edit StaticContent</h1>
 
-    {{ include('static_content/_form.html.twig', {'button_label': 'Modifier'}) }}
+	<div class="container pl-0">
+	    <!--Header-->
+        <div class="header peach-gradient mb-3">
+            <div class="row d-flex justify-content-center">
+          		<h3 class="white-text mb-0 py-5 font-weight-bold">Modifcation d'un contenu statique</h3>
+        	</div>
+        </div>
+        <!--Header-->
 
-    {# <a href="{{ path('static_content_index') }}">back to list</a> #}
-
-    {# {{ include('static_content/_delete_form.html.twig') }} #}
+	    {{ include('static_content/_form.html.twig', {'button_label': 'Modifier'}) }}
+    </div>
 {% endblock %}
