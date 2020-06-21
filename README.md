@@ -31,4 +31,4 @@
   ###Côté utilisateur :
     formulaire de contact + visuel en une seul page.
 
-##Nous avons généré sur l’ensemble du contenus statiques.
+##Nous avons généré sur l’ensemble du contenu statique des fixtures, peut être modifié après installation.
