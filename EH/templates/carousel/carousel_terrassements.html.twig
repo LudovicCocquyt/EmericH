@@ -1,0 +1,51 @@
+<!-- Modal & carousel Terrassement -->
+<div class="modal fade" id="terrassements" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+	    <div class="modal-content" style="width: 50em; height: 32em;">
+	      
+	        <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel1">Rénovations intérieures</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          	<span aria-hidden="true">&times;</span>
+	        	</button>
+			</div>
+	        <div class="modal-body">
+
+				<!--Carousel Rénovations intérieures -->
+				<div id="multi-item-example2" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
+
+					<!--Controls-->
+					<div class="controls-top" style="text-align: center;">
+					    <a class="black-text" href="#multi-item-example2" data-slide="prev"><i class="fas fa-angle-left fa-3x pr-3"></i></a>
+					    <a class="black-text" href="#multi-item-example2" data-slide="next"><i class="fas fa-angle-right fa-3x pl-3"></i></a>
+					</div>
+					<!--/.Controls-->
+
+				    <!--Slides-->
+				    <div class="carousel-inner" role="listbox">
+				  	    <div class="carousel-item active">
+						    <div class="col-md-3 mb-3">
+						        <div class="card">
+						            <img class="" style="width: 33em; height: auto;" src="img/logoban_1.png"
+						            alt="Card image cap">
+						        </div>
+						    </div>
+					    </div>
+
+						{% for terrassement in terrassements %}
+					    <div class="carousel-item">
+						      <div class="col-md-3 mb-3">
+						        <div class="card">
+						          <img class="" style="width: 33em; height: auto;" src="uploads/{{ terrassement.images.toArray.0.name }}"
+						            alt="Card image cap">
+						        </div>
+						      </div>
+					    </div>
+				    	{% endfor %}
+				    </div>
+				</div>
+	        </div>
+	    </div>
+    </div>
+</div>
+
