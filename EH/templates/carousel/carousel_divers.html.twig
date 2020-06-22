@@ -1,23 +1,23 @@
-<!-- Modal & carousel Rénovations intérieures -->
-<div class="modal fade" id="intérieures" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal & carousel Réalisations diverses -->
+<div class="modal fade" id="divers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel5" aria-hidden="true">
     <div class="modal-dialog" role="document">
 	    <div class="modal-content" style="width: 50em; height: 32em;">
 	      
 	        <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">Rénovations Intérieures</h5>
+		        <h5 class="modal-title" id="exampleModalLabel5">Réalisations Diverses</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          	<span aria-hidden="true">&times;</span>
 	        	</button>
 			</div>
 	        <div class="modal-body">
 
-				<!--Carousel Rénovations intérieures -->
-				<div id="multi-item-example" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
+				<!--Carousel Réalisations Diverses -->
+				<div id="multi-item-example5" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
 
 					<!--Controls-->
 					<div class="controls-top" style="text-align: center;">
-					    <a class="black-text" href="#multi-item-example" data-slide="prev"><i class="fas fa-angle-left fa-3x pr-3"></i></a>
-					    <a class="black-text" href="#multi-item-example" data-slide="next"><i class="fas fa-angle-right fa-3x pl-3"></i></a>
+					    <a class="black-text" href="#multi-item-example5" data-slide="prev"><i class="fas fa-angle-left fa-3x pr-3"></i></a>
+					    <a class="black-text" href="#multi-item-example5" data-slide="next"><i class="fas fa-angle-right fa-3x pl-3"></i></a>
 					</div>
 					<!--/.Controls-->
 
@@ -32,11 +32,11 @@
 						    </div>
 					    </div>
 						
-						{% for interieur in interieurs %}
+						{% for divers in divers %}
 					    <div class="carousel-item">
 						      <div class="col-md-3 mb-3">
 						        <div class="card">
-						          <img class="" style="width: 33em; height: auto;" src="uploads/{{ interieur.images.toArray.0.name }}"
+						          <img class="" style="width: 33em; height: auto;" src="uploads/{{ divers.images.toArray.0.name }}"
 						            alt="Card image cap">
 						        </div>
 						      </div>
