@@ -11,8 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/static/content")
- */
+ * @Route("/admin/static/content")$staticContentRepository->findAll()
+; */
 class StaticContentController extends AbstractController
 {
     /**
@@ -20,6 +20,8 @@ class StaticContentController extends AbstractController
      */
     public function index(StaticContentRepository $staticContentRepository): Response
     {
+        $this->denyAccessUnlessGranted('UserConnected', $staticContentRepository->findAll()[0]);
+
         return $this->render('static_content/index.html.twig', [
             'static_contents' => $staticContentRepository->findAll(),
         ]);
@@ -30,6 +32,8 @@ class StaticContentController extends AbstractController
      */
     public function edit(Request $request, StaticContent $staticContent): Response
     {
+        $this->denyAccessUnlessGranted('UserConnected', $staticContent);
+        
         $form = $this->createForm(StaticContentType::class, $staticContent);
         $form->handleRequest($request);
 
@@ -41,12 +45,12 @@ class StaticContentController extends AbstractController
 
         return $this->render('static_content/edit.html.twig', [
             'static_content' => $staticContent,
-            'form' => $form->createView(),
+            'form'           => $form->createView(),
         ]);
     }
 
     // /**
-    //  * @Route("/profile/new", name="static_content_new", methods={"GET","POST"})
+    //  * @Route("/new", name="static_content_new", methods={"GET","POST"})
     //  */
     // public function new(Request $request): Response
     // {
@@ -75,7 +79,7 @@ class StaticContentController extends AbstractController
     // }
 
     /**
-     * @Route("/profile/{id}", name="static_content_show", methods={"GET"})
+     * @Route("/{id}", name="static_content_show", methods={"GET"})
      */
     // public function show(StaticContent $staticContent): Response
     // {
