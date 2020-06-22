@@ -16,10 +16,12 @@
     php bin/console doctrine:database:drop --force
     php bin/console doctrine:database:CREATE
     php bin/console doctrine:migrations:migrate
+    php bin/console d:s:u --force
     php bin/console doctrine:fixtures:load
 
 ##Bundles utilisés :
     Swiftmailer
+    Voter
 
 ##Liste des fonctions opérationnelles : 
   ###Côté Administration :

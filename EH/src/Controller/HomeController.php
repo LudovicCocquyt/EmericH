@@ -20,8 +20,6 @@ class HomeController extends AbstractController
      */
     public function home(StaticContentRepository $staticContents, RealisationsRepository $realisations)
     {
-        //dd($realisations->findby(['section' => 'Intérieur'])
-        //[0]->getImages()->toArray()[0]->getname());
 
     	return $this->render('homePage.html.twig',[
                 'StaticContents' => $staticContents->findAll(),
@@ -32,4 +30,6 @@ class HomeController extends AbstractController
                 'divers'         => $realisations->findby(['section' => 'Divers'])
     	]);
 	}
+
+
 }
