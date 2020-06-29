@@ -31,16 +31,17 @@
 						        </div>
 						    </div>
 					    </div>
-						
 						{% for sol in sols|reverse %}
-					    <div class="carousel-item">
-						      <div class="col-md-3 mb-3">
-						        <div class="card">
-						          <img class="" style="width: 33em; height: auto;" src="/uploads/{{ sol.images.toArray.0.name }}"
-						            alt="Card image cap">
-						        </div>
-						      </div>
-					    </div>
+							{% if sol.images.toArray.0.name is defined %}
+						    <div class="carousel-item">
+							      <div class="col-md-3 mb-3">
+							        <div class="card">
+							          <img class="" style="width: 33em; height: auto;" src="/uploads/{{ sol.images.toArray.0.name }}"
+							            alt="Card image cap">
+							        </div>
+							      </div>
+						    </div>
+					    	{% endif %}
 				    	{% endfor %}
 				    </div>
 				</div>

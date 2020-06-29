@@ -33,14 +33,16 @@
 					    </div>
 
 						{% for terrassement in terrassements|reverse %}
-					    <div class="carousel-item">
-						      <div class="col-md-3 mb-3">
-						        <div class="card">
-						          <img class="" style="width: 33em; height: auto;" src="uploads/{{ terrassement.images.toArray.0.name }}"
-						            alt="Card image cap">
-						        </div>
-						      </div>
-					    </div>
+							{% if terrassement.images.toArray.0.name is defined %}
+						    <div class="carousel-item">
+							      <div class="col-md-3 mb-3">
+							        <div class="card">
+							          <img class="" style="width: 33em; height: auto;" src="uploads/{{ terrassement.images.toArray.0.name }}"
+							            alt="Card image cap">
+							        </div>
+							      </div>
+						    </div>
+							{% endif %}
 				    	{% endfor %}
 				    </div>
 				</div>
