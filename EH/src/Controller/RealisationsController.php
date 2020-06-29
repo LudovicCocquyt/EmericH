@@ -22,7 +22,9 @@ class RealisationsController extends AbstractController
      */
     public function index(RealisationsRepository $realisationsRepository): Response
     {
-        $this->denyAccessUnlessGranted('UserConnected', $realisationsRepository->findAll()[0]);
+        if ($realisationsRepository->findAll()) {
+            $this->denyAccessUnlessGranted('UserConnected', $realisationsRepository->findAll()[0]);
+        }
 
         return $this->render('realisations/index.html.twig', [
             'realisations' => $realisationsRepository->findAll(),
@@ -133,20 +135,6 @@ class RealisationsController extends AbstractController
         ]);
     }
 
-    // /**
-    //  * @Route("/{id}", name="realisations_delete", methods={"DELETE"})
-    //  */
-    // public function delete(Request $request, Realisations $realisation): Response
-    // {
-    //     if ($this->isCsrfTokenValid('delete'.$realisation->getId(), $request->request->get('_token'))) {
-    //         $entityManager = $this->getDoctrine()->getManager();
-    //         $entityManager->remove($realisation);
-    //         $entityManager->flush();
-    //     }
-
-    //     return $this->redirectToRoute('realisations_index');
-    // }
-
     /**
      * @Route("/supprime/image/{id}", name="realisations_delete_image", methods={"DELETE"})
      */
@@ -175,4 +163,17 @@ class RealisationsController extends AbstractController
             return $this->redirectToRoute('realisations_index');
     }
 
+    // /**
+    //  * @Route("/{id}", name="realisations_delete", methods={"DELETE"})
+    //  */
+    // public function delete(Request $request, Realisations $realisation): Response
+    // {
+    //     if ($this->isCsrfTokenValid('delete'.$realisation->getId(), $request->request->get('_token'))) {
+    //         $entityManager = $this->getDoctrine()->getManager();
+    //         $entityManager->remove($realisation);
+    //         $entityManager->flush();
+    //     }
+
+    //     return $this->redirectToRoute('realisations_index');
+    // }
 }
