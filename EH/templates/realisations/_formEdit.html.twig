@@ -1,0 +1,51 @@
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+ <section class="form-gradient mb-5">
+  <div class="container">
+    <!--Form with header-->
+    <div class="card">
+
+      <div class="card-body mx-4">
+
+        <div class="text-center">
+            {% for image in realisation.images %}
+                <div>
+                    <img src="{{ asset('/uploads/'~image.name) }}" alt="" width="250">
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="md-form">
+            <i class="fas fa-pencil-alt prefix grey-text"></i>
+            {{ form_widget(form.title) }}
+        </div>
+        <div class="md-form">
+            <i class="fas fa-pencil-alt prefix grey-text"></i>
+            {{ form_widget(form.description) }}
+        </div>
+        <div class="row md-form justify-content-center">
+            <p class="m-2">
+                {{ form_widget(form.section) }}
+            </p>
+        </div>
+
+        <!--Grid row-->
+        <div class="row d-flex align-items-center mb-3 mt-4">
+
+          <!--Grid column-->
+          <div class="col-md-12">
+            <div class="text-center">
+               <button class="btn btn-grey btn-rounded z-depth-1a">{{ button_label|default('Update') }}</button>
+            </div>
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+      </div>
+
+    </div>
+    <!--/Form with header-->
+  </div>
+</section>
+{{ form_end(form) }}
