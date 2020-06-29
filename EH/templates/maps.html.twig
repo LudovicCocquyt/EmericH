@@ -4,7 +4,9 @@
 		<!--Google map-->
 		<div class="col-md-8" id="map-container-google-1">
             {% for StaticContent in StaticContents|slice(6, 1) %}
-                <iframe src="{{ StaticContent.content }}" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    {% if StaticContent.content %}
+                        <iframe src="{{ StaticContent.content }}" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    {% endif %}
             {% endfor %}
 		<!--Google Maps-->
 		</div>
@@ -13,24 +15,30 @@
         <div class="col-md-4 text-center">
             <ul class="list-unstyled mb-0">
                 {% for StaticContent in StaticContents|slice(3, 1) %}
-                <li>
-                    <i class="fas fa-map-marker-alt fa-2x"></i>
-                    <p>{{ StaticContent.content }}</p>
-                </li>
+                    {% if StaticContent.content %}
+                    <li>
+                        <i class="fas fa-map-marker-alt fa-2x"></i>
+                        <p>{{ StaticContent.content }}</p>
+                    </li>
+                    {% endif %}
                 {% endfor %}
 
                 {% for StaticContent in StaticContents|slice(4, 1) %}
-                <li>
-                    <i class="fas fa-phone mt-4 fa-2x"></i>
-                    <p>{{ StaticContent.content }}</p>
-                </li>
+                    {% if StaticContent.content %}
+                        <li>
+                            <i class="fas fa-phone mt-4 fa-2x"></i>
+                            <p>{{ StaticContent.content }}</p>
+                        </li>
+                    {% endif %}
                 {% endfor %}
 
                 {% for StaticContent in StaticContents|slice(5, 1) %}
-                <li>
-                    <i class="fas fa-envelope mt-4 fa-2x"></i>
-                    <p>{{ StaticContent.content }}</p>
-                </li>
+                    {% if StaticContent.content %}
+                        <li>
+                            <i class="fas fa-envelope mt-4 fa-2x"></i>
+                            <p>{{ StaticContent.content }}</p>
+                        </li>
+                {% endif %}
                 {% endfor %}
             </ul>
         </div>
