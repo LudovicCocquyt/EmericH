@@ -24,7 +24,29 @@
     </head>
     <body>
     	{% include 'navbar.html.twig' %}
-        {% block body %}{% endblock %}
+		
+		  {% for message in app.flashes('success') %}
+		    <div class="alert alert-success text-center" style="position: absolute;
+margin-top: 5em; margin-left: 33em;">
+		      {{ message }}
+		    </div>
+		  {% endfor %}
+<div>
+		  {% for message in app.flashes('error') %}
+		    <div class="alert alert-danger" style="position: absolute;
+margin-top: 5em; margin-left: 26em;">
+		      {{ message }}
+		    </div>
+		  {% endfor %}
+</div>
+		  {% for message in app.flashes('notBlank') %}
+		    <div class="alert alert-danger text-center" style="position: absolute;
+margin-top: 5em; margin-left: 24em;">
+		      {{ message }}
+		    </div>
+		  {% endfor %}
+
+    	{% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
