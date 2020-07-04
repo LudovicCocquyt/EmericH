@@ -1,10 +1,10 @@
 <!-- Modal & carousel sol-->
 <div class="modal fade" id="sol" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
     <div class="modal-dialog" role="document">
-	    <div class="modal-content" style="width: 50em; height: 32em;">
+	    <div class="modal-content" style="width: 50em; height: 32em; margin-left: -130px;">
 	      
 	        <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel2">Sol</h5>
+		        <h5 class="modal-title" id="exampleModalLabel2">Sol - carrelage - pavage - chape...</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          	<span aria-hidden="true">&times;</span>
 	        	</button>
@@ -25,18 +25,19 @@
 				    <div class="carousel-inner" role="listbox">
 				  	    <div class="carousel-item active">
 						    <div class="col-md-3 mb-3">
-						        <div class="card">
-						            <img class="" style="width: 33em; height: auto;" src="img/logoban_1.png"
-						            alt="Card image cap">
+						        <div class="card" style="width: 46em; height: auto;">
+						        	{% for sol in sols|reverse|slice(0, 1) %}
+						            	<img style="width: 100%; max-height: 22em;" src="uploads/{{ sol.images.toArray.0.name }}" alt="Card image cap">
+						            {% endfor %}
 						        </div>
 						    </div>
 					    </div>
-						{% for sol in sols|reverse %}
+						{% for sol in sols|reverse|slice(1) %}
 							{% if sol.images.toArray.0.name is defined %}
 						    <div class="carousel-item">
 							      <div class="col-md-3 mb-3">
-							        <div class="card">
-							          <img class="" style="width: 33em; height: auto;" src="/uploads/{{ sol.images.toArray.0.name }}"
+							        <div class="card" style="width: 46em; height: auto;">
+							          <img class="" style="width: 100%; max-height: 22em;" src="/uploads/{{ sol.images.toArray.0.name }}"
 							            alt="Card image cap">
 							        </div>
 							      </div>

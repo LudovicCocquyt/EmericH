@@ -27,6 +27,7 @@ class HomeController extends AbstractController
                 'terrassements'  => $realisations->findby(['section' => 'Terrassement']),
                 'sols'           => $realisations->findby(['section' => 'Sol']),
                 'maconneries'    => $realisations->findby(['section' => 'Maçonnerie']),
+                'clotures'    => $realisations->findby(['section' => 'Cloture']),
                 'divers'         => $realisations->findby(['section' => 'Divers'])
     	]);
 	}

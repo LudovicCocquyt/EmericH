@@ -24,6 +24,7 @@ class RealisationsType extends AbstractType
                                        'Terrassement' => 'Terrassement',
                                        'Sol'          => 'Sol',
                                        'Maçonnerie'   => 'Maçonnerie',
+                                       'Cloture'      => 'Cloture',
                                        'Divers'       => 'Divers'
                                     ],
                     ])

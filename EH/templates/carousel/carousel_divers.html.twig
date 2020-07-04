@@ -1,7 +1,7 @@
 <!-- Modal & carousel Réalisations diverses -->
 <div class="modal fade" id="divers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel5" aria-hidden="true">
     <div class="modal-dialog" role="document">
-	    <div class="modal-content" style="width: 50em; height: 32em;">
+	    <div class="modal-content" style="width: 50em; height: 32em; margin-left: -130px;">
 	      
 	        <div class="modal-header">
 		        <h5 class="modal-title" id="exampleModalLabel5">Réalisations Diverses</h5>
@@ -25,20 +25,20 @@
 				    <div class="carousel-inner" role="listbox">
 				  	    <div class="carousel-item active">
 						    <div class="col-md-3 mb-3">
-						        <div class="card">
-						            <img class="" style="width: 33em; height: auto;" src="img/logoban_1.png"
-						            alt="Card image cap">
+						        <div class="card" style="width: 46em; height: auto;">
+						        	{% for divers in divers|reverse|slice(0, 1) %}
+						            	<img style="width: 100%; max-height: 22em;" src="uploads/{{ divers.images.toArray.0.name }}" alt="Card image cap">
+						            {% endfor %}
 						        </div>
 						    </div>
 					    </div>
 						
-						{% for divers in divers|reverse %}
+						{% for divers in divers|reverse|slice(1) %}
 							{% if divers.images.toArray.0.name is defined %}
 						    <div class="carousel-item">
 							      <div class="col-md-3 mb-3">
-							        <div class="card">
-							          <img class="" style="width: 33em; height: auto;" src="uploads/{{ divers.images.toArray.0.name }}"
-							            alt="Card image cap">
+							        <div class="card" style="width: 46em; height: auto;">
+							          <img style="width: 100%; max-height: 22em;" src="uploads/{{ divers.images.toArray.0.name }}" alt="Card image cap">
 							        </div>
 							      </div>
 				    		</div>

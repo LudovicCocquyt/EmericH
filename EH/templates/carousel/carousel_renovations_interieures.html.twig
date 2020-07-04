@@ -1,7 +1,7 @@
 <!-- Modal & carousel Rénovations intérieures -->
 <div class="modal fade" id="intérieures" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-	    <div class="modal-content" style="width: 50em; height: 32em;">
+	    <div class="modal-content" style="width: 50em; height: 32em; margin-left: -130px;">
 	      
 	        <div class="modal-header">
 		        <h5 class="modal-title" id="exampleModalLabel">Rénovations Intérieures</h5>
@@ -25,23 +25,24 @@
 				    <div class="carousel-inner" role="listbox">
 				  	    <div class="carousel-item active">
 						    <div class="col-md-3 mb-3">
-						        <div class="card">
-						            <img class="" style="width: 33em; height: auto;" src="img/logoban_1.png"
-						            alt="Card image cap">
+						        <div class="card" style="width: 46em; height: auto;">
+						        	{% for interieur in interieurs|reverse|slice(0, 1) %}
+						            	<img style="width: 100%; max-height: 22em;" src="uploads/{{ interieur.images.toArray.0.name }}" alt="Card image cap">
+						            {% endfor %}
 						        </div>
 						    </div>
 					    </div>
 						
-						{% for interieur in interieurs|reverse %}
+						{% for interieur in interieurs|reverse|slice(1) %}
 							{% if interieur.images.toArray.0.name is defined %}
 						    <div class="carousel-item">
 							      <div class="col-md-3 mb-3">
-							        <div class="card">
-							          <img class="" style="width: 33em; height: auto;" src="uploads/{{ interieur.images.toArray.0.name }}"
+							        <div class="card" style="width: 46em; height: auto;">
+							          <img class="" style="width: 100%; max-height: 22em;" src="uploads/{{ interieur.images.toArray.0.name }}"
 							            alt="Card image cap">
 							        </div>
 							      </div>
-						    </div>*
+						    </div>
 							{% endif %}
 				    	{% endfor %}
 				    </div>
