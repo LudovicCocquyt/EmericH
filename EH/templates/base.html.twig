@@ -26,27 +26,25 @@
     	{% include 'navbar.html.twig' %}
 		
 		  {% for message in app.flashes('success') %}
-		    <div class="alert alert-success text-center" style="position: absolute;
-margin-top: 5em; margin-left: 33em;">
+		    <div class="alert alert-success text-center flashSuccess">
 		      {{ message }}
 		    </div>
 		  {% endfor %}
-<div>
+			
 		  {% for message in app.flashes('error') %}
-		    <div class="alert alert-danger" style="position: absolute;
-margin-top: 5em; margin-left: 26em;">
+		    <div class="alert alert-danger flashError">
 		      {{ message }}
 		    </div>
 		  {% endfor %}
-</div>
+
 		  {% for message in app.flashes('notBlank') %}
-		    <div class="alert alert-danger text-center" style="position: absolute;
-margin-top: 5em; margin-left: 24em;">
+		    <div class="alert alert-danger text-center flashNotBlank">
 		      {{ message }}
 		    </div>
 		  {% endfor %}
 
     	{% block body %}{% endblock %}
+    	{{ encore_entry_link_tags('app') }}
         {% block javascripts %}{% endblock %}
     </body>
 </html>

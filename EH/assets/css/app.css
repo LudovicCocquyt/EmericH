@@ -1,0 +1,23 @@
+/* base.html.twig */
+body {
+    background-color: white;
+}
+
+.flashSuccess{
+	position: absolute;
+	margin-top: 5em;
+	margin-left: 33em;
+}
+
+.flashError{
+	position: absolute;
+	margin-top: 5em;
+	margin-left: 26em;
+}
+
+.flashNotBlank{
+	position: absolute;
+	margin-top: 5em;
+	margin-left: 24em;
+}
+/* fin base.html.twig */
