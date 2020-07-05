@@ -20,6 +20,7 @@
     php bin/console doctrine:fixtures:load
 
 ##Bundles utilisés :
+    Webpack-encore
     Swiftmailer
     Voter
 
