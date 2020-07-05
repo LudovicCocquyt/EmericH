@@ -1,10 +1,10 @@
 <!-- Modal & carousel Réalisations diverses -->
 <div class="modal fade" id="divers" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel5" aria-hidden="true">
     <div class="modal-dialog" role="document">
-	    <div class="modal-content" style="width: 50em; height: 32em; margin-left: -130px;">
+	    <div class="modal-content heightModal">
 	      
 	        <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel5">Réalisations Diverses</h5>
+		        <h5 class="modal-title smallFont" id="exampleModalLabel5">Réalisations Diverses</h5>
 		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		          	<span aria-hidden="true">&times;</span>
 	        	</button>
@@ -15,7 +15,7 @@
 				<div id="multi-item-example5" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
 
 					<!--Controls-->
-					<div class="controls-top" style="text-align: center;">
+					<div class="controls-top text-center">
 					    <a class="black-text" href="#multi-item-example5" data-slide="prev"><i class="fas fa-angle-left fa-3x pr-3"></i></a>
 					    <a class="black-text" href="#multi-item-example5" data-slide="next"><i class="fas fa-angle-right fa-3x pl-3"></i></a>
 					</div>
@@ -25,9 +25,9 @@
 				    <div class="carousel-inner" role="listbox">
 				  	    <div class="carousel-item active">
 						    <div class="col-md-3 mb-3">
-						        <div class="card" style="width: 46em; height: auto;">
+						        <div class="card hCard">
 						        	{% for divers in divers|reverse|slice(0, 1) %}
-						            	<img style="width: 100%; max-height: 22em;" src="uploads/{{ divers.images.toArray.0.name }}" alt="Card image cap">
+						            	<img class="w-100 imgHeight" src="uploads/{{ divers.images.toArray.0.name }}" alt="Card image cap">
 						            {% endfor %}
 						        </div>
 						    </div>
@@ -37,8 +37,8 @@
 							{% if divers.images.toArray.0.name is defined %}
 						    <div class="carousel-item">
 							      <div class="col-md-3 mb-3">
-							        <div class="card" style="width: 46em; height: auto;">
-							          <img style="width: 100%; max-height: 22em;" src="uploads/{{ divers.images.toArray.0.name }}" alt="Card image cap">
+							        <div class="card hCard">
+							          <img  class="w-100 imgHeight" src="uploads/{{ divers.images.toArray.0.name }}" alt="Card image cap">
 							        </div>
 							      </div>
 				    		</div>

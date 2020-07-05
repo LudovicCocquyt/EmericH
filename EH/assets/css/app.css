@@ -1,3 +1,33 @@
+/* Fonts */
+.smallFont{
+	font-family: 'Merienda One', cursive;
+}
+
+.smallFontGalery{
+	font-family: 'Merienda One', cursive;
+	font-size: 1.5rem;
+}
+
+.bigFont{
+	font-family: 'Anton', sans-serif;
+}
+/* fin Fonts */
+
+/* navBar */
+.myNav{
+	background-color: #0862f1;
+	position: fixed;
+	width: 100%;
+	z-index:1000;
+}
+/* fin navBar */
+
+/* admin.html.twig */
+.heightDiv{
+	height: 40em;
+}
+/* fin admin.html.twig */
+
 /* base.html.twig */
 body {
     background-color: white;
@@ -21,3 +51,115 @@ body {
 	margin-left: 24em;
 }
 /* fin base.html.twig */
+
+/* homePage.html.twig */
+.logo{
+	height: 30em; 
+	padding-top: 50px;
+}
+#presentation{
+	height: 25em;
+	background-color: #0862f1;
+	padding-top: 20px;
+}
+.textPres{
+    padding-top: 40px;
+	padding-left: 8em;
+    padding-right: 7em;
+    text-align: center;
+}
+.textPres2{
+	text-align: center;
+    font-size: 30px;
+    padding-top: 50px;
+}
+.tva{
+    padding-top: 50px;
+	padding-left: 225px;
+    padding-right: 225px;
+	padding-bottom: 50px;
+    text-align: center;
+}
+/* fin homePage.html.twig */
+
+/* maps.html.twig */
+#maps{
+	height: 21em; 
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.mapsAlign{
+	justify-content: space-between;
+    margin: auto;
+}
+
+.info{
+	width: 75%;
+    margin-left: 40px;
+}
+/* fin maps.html.twig */
+
+/* modal.html.twig */
+#galery{
+	height: 60em;
+	padding-top: 2em;
+}
+.divGalery{
+	justify-content: center;
+	margin-right: 0px;
+    margin-left: 0px;
+}
+.modalBtn{
+	width: 30em;
+	height: 27em
+}
+.imgModalHeight{
+	max-height: 18em;
+}
+.imgModalHeightCloture{
+	height: 18em;
+}
+.btnModalHeigth{
+	width: 30em;
+	height: 25em;
+}
+/* fin modal.html.twig */
+/* contact.html.twig */
+#contact{
+	height: 36em; 
+	background-color: #0862f1; 
+	padding-top: 1em;
+    margin-top: -8em;
+}
+.borderSubmit{
+	border: solid 2px;
+}
+/* fin contact.html.twig */
+/* footer.html.twig */
+.bgColor{
+	background-color: #0862f1;
+}
+/* fin footer.html.twig */
+
+/* pages modals */
+.heightModal{
+	width: 50em;
+	height: 32em;
+	margin-left: -130px;
+}
+
+.cardStyle{
+	width: 46em;
+	height: auto;
+}
+
+.imgHeight{
+	max-height: 22em;
+}
+
+.hCard{
+	width: 46em; 
+	height: auto;
+}
+/* fin pages modals */

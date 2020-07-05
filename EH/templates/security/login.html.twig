@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<div id="login" class="container pt-5">
+<div id="login" class="container col-6 pt-5">
     <!-- Default form subscription -->
     <form method="post" class="text-center border border-light p-5" action="#!">
         {% if error %}
@@ -16,8 +16,6 @@
                 You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
             </div>
         {% endif %}
-
-        <h1 class="h3 mb-3 font-weight-normal">Hello</h1>
 
         <input type="text" placeholder="Nom" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
 
