@@ -6,11 +6,11 @@
     PHP 7.2.5
     Framework Symfony 5.1
     Composer
-    //Yarn
+    Yarn
    
 ##Installation:
     composer install
-    //yarn install//
+    yarn install
     //php bin/console assets:install public//
     //yarn build//
     php bin/console doctrine:database:drop --force
@@ -23,6 +23,7 @@
     Webpack-encore
     Swiftmailer
     Voter
+    karser-recaptcha3-bundle
 
 ##Liste des fonctions opérationnelles : 
   ###Côté Administration :
