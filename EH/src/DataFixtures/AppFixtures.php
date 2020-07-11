@@ -100,17 +100,122 @@ class AppFixtures extends Fixture
         $manager->persist($contentSeven);
 
         //fixture realisation
-        $realisation = new Realisations;
+        //One
+        $realisationOne = new Realisations;
 
-        $realisation->setTitle('Ma réalisation')
-                    ->setDescription('La description de ma réalisation')
-                    ->setSection('Sol');
-        $manager->persist($realisation);
+        $realisationOne->setTitle('Chantier')
+                       ->setDescription('Après rénovations')
+                       ->setSection('Intérieur');
+        $manager->persist($realisationOne);
 
-        $image = new Images;
-        $image->setRealisations($realisation)
-              ->setName('not_delete.png');
-        $manager->persist($image);
+        $imageOne = new Images;
+        $imageOne->setRealisations($realisationOne)
+                 ->setName('apresrenov3.jpg');
+        $manager->persist($imageOne);
+
+        //Two
+        $realisationTwo = new Realisations;
+
+        $realisationTwo->setTitle('Chantier')
+                       ->setDescription('Après rénovations')
+                       ->setSection('Intérieur');
+        $manager->persist($realisationTwo);
+
+        $imageTwo = new Images;
+        $imageTwo->setRealisations($realisationTwo)
+                 ->setName('apresrenov2.jpg');
+        $manager->persist($imageTwo);
+
+        //Three
+        $realisationThree = new Realisations;
+
+        $realisationThree->setTitle('Chantier')
+                       ->setDescription('Début de chantier')
+                       ->setSection('Intérieur');
+        $manager->persist($realisationThree);
+
+        $imageThree = new Images;
+        $imageThree->setRealisations($realisationThree)
+                 ->setName('debutchantier3.jpg');
+        $manager->persist($imageThree);
+
+        //Four
+        $realisationFour = new Realisations;
+
+        $realisationFour->setTitle('Chantier')
+                       ->setDescription('Début de chantier')
+                       ->setSection('Intérieur');
+        $manager->persist($realisationFour);
+
+        $imageFour = new Images;
+        $imageFour->setRealisations($realisationFour)
+                 ->setName('débutchantier2.jpg');
+        $manager->persist($imageFour);
+
+        //Five
+        $realisationFive = new Realisations;
+
+        $realisationFive->setTitle('Chantier')
+                       ->setDescription('Cuisine après rénovations')
+                       ->setSection('Intérieur');
+        $manager->persist($realisationFive);
+
+        $imageFive = new Images;
+        $imageFive->setRealisations($realisationFive)
+                 ->setName('cuisineapresrenov.jpg');
+        $manager->persist($imageFive);
+
+        //Six
+        $realisationSix = new Realisations;
+
+        $realisationSix->setTitle('Chantier')
+                       ->setDescription('Cuisine avant rénovations')
+                       ->setSection('Intérieur');
+        $manager->persist($realisationSix);
+
+        $imageSix = new Images;
+        $imageSix->setRealisations($realisationSix)
+                 ->setName('cuisineavantrenov.jpg');
+        $manager->persist($imageSix);
+
+        //Seven
+        $realisationSeven = new Realisations;
+
+        $realisationSeven->setTitle('Chantier')
+                       ->setDescription('Après rénovation complète')
+                       ->setSection('Intérieur');
+        $manager->persist($realisationSeven);
+
+        $imageSeven = new Images;
+        $imageSeven->setRealisations($realisationSeven)
+                 ->setName('apresrenov.jpg');
+        $manager->persist($imageSeven);
+
+        //Eight
+        $realisationEight = new Realisations;
+
+        $realisationEight->setTitle('Chantier')
+                       ->setDescription('Début de chantier')
+                       ->setSection('Intérieur');
+        $manager->persist($realisationEight);
+
+        $imageEight = new Images;
+        $imageEight->setRealisations($realisationEight)
+                 ->setName('debutchantier.jpg');
+        $manager->persist($imageEight);
+
+        //Nine
+        $realisationNine = new Realisations;
+
+        $realisationNine->setTitle('Chantier')
+                       ->setDescription('Début de chantier mur de soutenement')
+                       ->setSection('Maçonnerie');
+        $manager->persist($realisationNine);
+
+        $imageNine = new Images;
+        $imageNine->setRealisations($realisationNine)
+                 ->setName('debutchantier.jpg');
+        $manager->persist($imageNine);
 
         $manager->flush();
     }
