@@ -4,15 +4,7 @@
 
 {% block body %}
 
-	<div class="container pl-0">
-	    <!--Header-->
-        <div class="header peach-gradient mb-3">
-            <div class="row d-flex justify-content-center">
-          		<h3 class="white-text mb-0 py-5 font-weight-bold">Modifcation d'un contenu statique</h3>
-        	</div>
-        </div>
-        <!--Header-->
-
+	<div class="container pl-0 pt-5">
 	    {{ include('static_content/_form.html.twig', {'button_label': 'Modifier'}) }}
     </div>
 {% endblock %}

@@ -1,3 +1,26 @@
+
+/* mobile version */
+@media screen and (max-width: 990px) {
+  nav {
+    display: none !important;
+  }
+  #presentation {
+    height: 30em !important;
+	background-color: #0862f1;
+	padding-top: 20px;
+  }
+
+  .textPres2 {
+	font-size: 35px !important;
+  }
+
+  #galery {
+  	height: 84em !important;
+	padding-top: 2em;
+  }
+}
+/* fin mobile version */
+
 /* Fonts */
 .smallFont{
 	font-family: 'Merienda One', cursive;
