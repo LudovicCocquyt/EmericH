@@ -1,13 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.html.twig' %}
 
 {% block title %}Edit User{% endblock %}
 
 {% block body %}
-    <h1>Edit User</h1>
+	{% for message in app.flashes('success')%}
+        <div class="alert-success message text-center">{{ message }}</div>
+    {% endfor %}
+    {% for message in app.flashes('danger')%}
+        <div class="alert-danger message text-center">{{ message }}</div>
+    {% endfor %}
+	<div class="container pl-0 pt-5">
+    	{{ include('user/_form.html.twig', {'button_label': 'Modifier'}) }}
+    </div>
 
-    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('user_index') }}">back to list</a>
-
-    {{ include('user/_delete_form.html.twig') }}
 {% endblock %}

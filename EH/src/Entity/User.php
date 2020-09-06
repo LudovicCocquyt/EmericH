@@ -26,6 +26,8 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="string", length=64)
      */
     private $password;
+    public $newPassword;
+    public $confirmePassword;
 
     /**
      * @ORM\Column(type="string", length=254, unique=true)
@@ -47,6 +49,11 @@ class User implements UserInterface, \Serializable
         $this->isActive = true;
         // may not be needed, see section on salt below
         // $this->salt = md5(uniqid('', true));
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function getUsername()

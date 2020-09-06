@@ -1,4 +1,49 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_errors(form) }}
+    <section class="form-gradient mb-5">
+  <div class="container">
+    <!--Form with header-->
+    <div class="card">
+
+      <div class="card-body mx-4">
+
+        <div class="md-form">
+          <i class="fas fa-pencil-alt prefix grey-text"></i>
+          {{ form_widget(form.username, { 'attr': {'class': "span12",'placeholder': "login"} }) }}
+        </div>
+
+        <div class="md-form">
+          <i class="fas fa-pencil-alt prefix grey-text"></i>
+          {{ form_widget(form.password, { 'attr': {'class': "span12",'placeholder': "Mot de passe actuel"} }) }}
+        </div>
+
+        <div class="md-form">
+          <i class="fas fa-pencil-alt prefix grey-text"></i>
+          {{ form_widget(form.newPassword, { 'attr': {'class': "span12",'placeholder': "Nouveau mot de passe"} }) }}
+        </div>
+
+        <div class="md-form">
+          <i class="fas fa-pencil-alt prefix grey-text"></i>
+          {{ form_widget(form.confirmePassword, { 'attr': {'class': "span12",'placeholder': "Confirmer le nouveau mot de passe"} }) }}
+        </div>
+
+        <!--Grid row-->
+        <div class="row d-flex align-items-center mb-3 mt-4">
+
+          <!--Grid column-->
+          <div class="col-md-12">
+            <div class="text-center">
+               <button class="btn btn-grey btn-rounded z-depth-1a">{{ button_label|default('Modifier') }}</button>
+            </div>
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+      </div>
+
+    </div>
+    <!--/Form with header-->
+  </div>
+</section>
 {{ form_end(form) }}
