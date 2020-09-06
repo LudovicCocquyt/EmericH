@@ -42,6 +42,7 @@ class AppFixtures extends Fixture
         $contentFive  = new StaticContent;
         $contentSix   = new StaticContent;
         $contentSeven = new StaticContent;
+        $contentEight = new StaticContent;
 
         $contentOne->setCreatedAt($now)
         ->setCreatedBy('admin')
@@ -98,6 +99,14 @@ class AppFixtures extends Fixture
         ->setTitle('Lien iframe de google')
         ->setContent('https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2546.6910821867273!2d3.5016645157272066!3d50.33501437945947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2ed00ef2c147d%3A0x3efbec32d3410730!2s23%20Rue%20Gustave%20Delory%2C%2059125%20Trith-Saint-L%C3%A9ger!5e0!3m2!1sfr!2sfr!4v1592496177330!5m2!1sfr!2sfr');
         $manager->persist($contentSeven);
+
+        $contentEight->setCreatedAt($now)
+        ->setCreatedBy('admin')
+        ->setUpdatedAt($now)
+        ->setUpdatedBy('admin')
+        ->setTitle('Afficher formulaire de contact ?')
+        ->setContent("Oui");
+        $manager->persist($contentEight);
 
         //fixture realisation
         //One

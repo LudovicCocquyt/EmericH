@@ -35,7 +35,7 @@
                     {% if StaticContent.content %}
                         <li>
                             <i class="fas fa-envelope mt-4 fa-2x"></i>
-                            <p class="smallFont info">{{ StaticContent.content }}</p>
+                            <p class="smallFont info">{{ StaticContent.content|lower }}</p>
                         </li>
                 {% endif %}
                 {% endfor %}

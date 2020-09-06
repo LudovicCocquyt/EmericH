@@ -38,6 +38,10 @@ class StaticContentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $staticContent->setTitle(ucfirst(strtolower($staticContent->getTitle())));
+
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('static_content_index');
@@ -49,34 +53,35 @@ class StaticContentController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/new", name="static_content_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $staticContent = new StaticContent();
-        $form = $this->createForm(StaticContentType::class, $staticContent);
-        $form->handleRequest($request);
+    // /**
+    //  * @Route("/new", name="static_content_new", methods={"GET","POST"})
+    //  */
+    // public function new(Request $request): Response
+    // {
+    //     $staticContent = new StaticContent();
+    //     $form = $this->createForm(StaticContentType::class, $staticContent);
+    //     $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+    //     if ($form->isSubmitted() && $form->isValid()) {
 
-            $staticContent->setCreatedAt(new \DateTime('now'));
-            $staticContent->setCreatedBy('ludo');
-            $staticContent->setUpdatedAt(new \DateTime('now'));
-            $staticContent->setUpdatedBy('ludo');
+    //         $staticContent->setCreatedAt(new \DateTime('now'));
+    //         $staticContent->setCreatedBy('Admin');
+    //         $staticContent->setUpdatedAt(new \DateTime('now'));
+    //         $staticContent->setUpdatedBy('Admin');
+    //         $staticContent->setTitle(ucfirst(strtolower($staticContent->getTitle())));
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($staticContent);
-            $entityManager->flush();
+    //         $entityManager = $this->getDoctrine()->getManager();
+    //         $entityManager->persist($staticContent);
+    //         $entityManager->flush();
 
-            return $this->redirectToRoute('static_content_index');
-        }
+    //         return $this->redirectToRoute('static_content_index');
+    //     }
 
-        return $this->render('static_content/new.html.twig', [
-            'static_content' => $staticContent,
-            'form' => $form->createView(),
-        ]);
-    }
+    //     return $this->render('static_content/new.html.twig', [
+    //         'static_content' => $staticContent,
+    //         'form' => $form->createView(),
+    //     ]);
+    // }
 
     /**
      * @Route("/{id}", name="static_content_show", methods={"GET"})
