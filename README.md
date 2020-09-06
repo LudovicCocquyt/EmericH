@@ -23,12 +23,12 @@
     Webpack-encore
     Swiftmailer
     Voter
-    karser-recaptcha3-bundle
 
 ##Liste des fonctions opérationnelles : 
+
   ###Côté Administration :
     Accès à la partie administrateur (sans que cela apparaisse côté utilisateur)
-        via -> /admin
+        via -> /login
     Création de formulaire pour le contenu statique.
     Création de formulaire pour la gestion des fichiers uploadés.
 
