@@ -26,9 +26,20 @@
 				  	    <div class="carousel-item active">
 						    <div class="col-md-3 mb-3">
 						        <div class="card cardStyle">
+						        	
 						        	{% for terrassement in terrassements|reverse|slice(0, 1) %}
-						            	<img class="w-100 imgHeight" src="uploads/{{ terrassement.images.toArray.0.name }}" alt="Card image cap">
+
+						        		{% if terrassement.format == 'Paysage'%}
+							          		<img class="imgPaysage" src="uploads/{{ terrassement.images.toArray.0.name }}" alt="Card image cap">
+							        		<p class="text-center">{{ terrassement.description }}</p>
+							          	{% endif %}
+							          	{% if terrassement.format == 'Portrait'%}
+							          		<img class="imgPortrait" src="uploads/{{ terrassement.images.toArray.0.name }}" alt="Card image cap">
+							          		<p class="text-center">{{ terrassement.description }}</p>
+							          	{% endif %}
+
 						            {% endfor %}
+						            
 						        </div>
 						    </div>
 					    </div>
@@ -37,9 +48,17 @@
 							{% if terrassement.images.toArray.0.name is defined %}
 						    <div class="carousel-item">
 							      <div class="col-md-3 mb-3">
-							        <div class="card cardStyle">
-							          <img class="w-100 imgHeight" src="uploads/{{ terrassement.images.toArray.0.name }}"
-							            alt="Card image cap">
+							        <div class="card hCard">
+							        	
+							        	{% if terrassement.format == 'Paysage'%}
+							          		<img class="imgPaysage" src="uploads/{{ terrassement.images.toArray.0.name }}" alt="Card image cap">
+							        		<p class="text-center">{{ terrassement.description }}</p>
+							          	{% endif %}
+							          	{% if terrassement.format == 'Portrait'%}
+							          		<img class="imgPortrait" src="uploads/{{ terrassement.images.toArray.0.name }}" alt="Card image cap">
+							          		<p class="text-center">{{ terrassement.description }}</p>
+							          	{% endif %}
+							        
 							        </div>
 							      </div>
 						    </div>

@@ -39,6 +39,11 @@ class Realisations
      */
     private $images;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $format;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -112,6 +117,18 @@ class Realisations
                 $image->setRealisations(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFormat(): ?string
+    {
+        return $this->format;
+    }
+
+    public function setFormat(?string $format): self
+    {
+        $this->format = $format;
 
         return $this;
     }

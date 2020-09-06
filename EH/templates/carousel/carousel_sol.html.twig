@@ -26,24 +26,45 @@
 				  	    <div class="carousel-item active">
 						    <div class="col-md-3 mb-3">
 						        <div class="card hCard">
+						        	
 						        	{% for sol in sols|reverse|slice(0, 1) %}
-						            	<img class="w-100 imgHeight" src="uploads/{{ sol.images.toArray.0.name }}" alt="Card image cap">
+
+						        		{% if sol.format == 'Paysage'%}
+							          		<img class="imgPaysage" src="uploads/{{ sol.images.toArray.0.name }}" alt="Card image cap">
+							        		<p class="text-center">{{ sol.description }}</p>
+							          	{% endif %}
+							          	{% if sol.format == 'Portrait'%}
+							          		<img class="imgPortrait" src="uploads/{{ sol.images.toArray.0.name }}" alt="Card image cap">
+							          		<p class="text-center">{{ sol.description }}</p>
+							          	{% endif %}
+
 						            {% endfor %}
+
 						        </div>
 						    </div>
 					    </div>
+						
 						{% for sol in sols|reverse|slice(1) %}
 							{% if sol.images.toArray.0.name is defined %}
 						    <div class="carousel-item">
 							      <div class="col-md-3 mb-3">
 							        <div class="card hCard">
-							          <img class="w-100 imgHeight" src="/uploads/{{ sol.images.toArray.0.name }}"
-							            alt="Card image cap">
+							        	
+							        	{% if sol.format == 'Paysage'%}
+							          		<img class="imgPaysage" src="uploads/{{ sol.images.toArray.0.name }}" alt="Card image cap">
+							        		<p class="text-center">{{ sol.description }}</p>
+							          	{% endif %}
+							          	{% if sol.format == 'Portrait'%}
+							          		<img class="imgPortrait" src="uploads/{{ sol.images.toArray.0.name }}" alt="Card image cap">
+							          		<p class="text-center">{{ sol.description }}</p>
+							          	{% endif %}
+							        
 							        </div>
 							      </div>
 						    </div>
-					    	{% endif %}
+							{% endif %}
 				    	{% endfor %}
+
 				    </div>
 				</div>
 	        </div>

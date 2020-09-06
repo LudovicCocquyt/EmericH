@@ -167,7 +167,7 @@ body {
 /* pages modals */
 .heightModal{
 	width: 50em;
-	height: 32em;
+	height: 35em;
 	margin-left: -130px;
 }
 
@@ -176,8 +176,14 @@ body {
 	height: auto;
 }
 
-.imgHeight{
+.imgPaysage{
 	max-height: 22em;
+}
+
+.imgPortrait{
+	max-height: 23em;
+	width: 40%;
+	margin-left: 220px;
 }
 
 .hCard{

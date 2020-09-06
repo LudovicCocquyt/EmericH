@@ -28,6 +28,13 @@ class RealisationsType extends AbstractType
                                        'Divers'       => 'Divers'
                                     ],
                     ])
+            ->add('format', ChoiceType::class, [
+                        'label'  => 'Format',
+                        'choices'=> [
+                                       'Portrait' => 'Portrait',
+                                       'Paysage'  => 'Paysage'
+                                    ],
+                    ])
             ->add('images', FileType::class,[
                 'label'    => false,
                 'multiple' => true,

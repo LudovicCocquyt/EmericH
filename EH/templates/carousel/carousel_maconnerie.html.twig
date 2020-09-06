@@ -26,9 +26,20 @@
 				  	    <div class="carousel-item active">
 						    <div class="col-md-3 mb-3">
 						        <div class="card hCard">
+						        	
 						        	{% for maconnerie in maconneries|reverse|slice(0, 1) %}
-						            	<img class="w-100 imgHeight" src="uploads/{{ maconnerie.images.toArray.0.name }}" alt="Card image cap">
+
+						        		{% if maconnerie.format == 'Paysage'%}
+							          		<img class="imgPaysage" src="uploads/{{ maconnerie.images.toArray.0.name }}" alt="Card image cap">
+							        		<p class="text-center">{{ maconnerie.description }}</p>
+							          	{% endif %}
+							          	{% if maconnerie.format == 'Portrait'%}
+							          		<img class="imgPortrait" src="uploads/{{ maconnerie.images.toArray.0.name }}" alt="Card image cap">
+							          		<p class="text-center">{{ maconnerie.description }}</p>
+							          	{% endif %}
+
 						            {% endfor %}
+
 						        </div>
 						    </div>
 					    </div>
@@ -38,13 +49,22 @@
 						    <div class="carousel-item">
 							      <div class="col-md-3 mb-3">
 							        <div class="card hCard">
-							          <img class="w-100 imgHeight" src="uploads/{{ maconnerie.images.toArray.0.name|e }}"
-							            alt="Card image cap">
+							        	
+							        	{% if maconnerie.format == 'Paysage'%}
+							          		<img class="imgPaysage" src="uploads/{{ maconnerie.images.toArray.0.name }}" alt="Card image cap">
+							        		<p class="text-center">{{ maconnerie.description }}</p>
+							          	{% endif %}
+							          	{% if maconnerie.format == 'Portrait'%}
+							          		<img class="imgPortrait" src="uploads/{{ maconnerie.images.toArray.0.name }}" alt="Card image cap">
+							          		<p class="text-center">{{ maconnerie.description }}</p>
+							          	{% endif %}
+							        
 							        </div>
 							      </div>
 						    </div>
-						    {% endif %}
+							{% endif %}
 				    	{% endfor %}
+
 				    </div>
 				</div>
 	        </div>

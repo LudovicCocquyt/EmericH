@@ -27,7 +27,16 @@
 						    <div class="col-md-3 mb-3">
 						        <div class="card hCard">
 						        	{% for divers in divers|reverse|slice(0, 1) %}
-						            	<img class="w-100 imgHeight" src="uploads/{{ divers.images.toArray.0.name }}" alt="Card image cap">
+
+						        		{% if divers.format == 'Paysage'%}
+							          		<img class="imgPaysage" src="uploads/{{ divers.images.toArray.0.name }}" alt="Card image cap">
+							        		<p class="text-center">{{ divers.description }}</p>
+							          	{% endif %}
+							          	{% if divers.format == 'Portrait'%}
+							          		<img class="imgPortrait" src="uploads/{{ divers.images.toArray.0.name }}" alt="Card image cap">
+							          		<p class="text-center">{{ divers.description }}</p>
+							          	{% endif %}
+
 						            {% endfor %}
 						        </div>
 						    </div>
@@ -38,11 +47,20 @@
 						    <div class="carousel-item">
 							      <div class="col-md-3 mb-3">
 							        <div class="card hCard">
-							          <img  class="w-100 imgHeight" src="uploads/{{ divers.images.toArray.0.name }}" alt="Card image cap">
+							        	
+							        	{% if divers.format == 'Paysage'%}
+							          		<img class="imgPaysage" src="uploads/{{ divers.images.toArray.0.name }}" alt="Card image cap">
+							        		<p class="text-center">{{ divers.description }}</p>
+							          	{% endif %}
+							          	{% if divers.format == 'Portrait'%}
+							          		<img class="imgPortrait" src="uploads/{{ divers.images.toArray.0.name }}" alt="Card image cap">
+							          		<p class="text-center">{{ divers.description }}</p>
+							          	{% endif %}
+							        
 							        </div>
 							      </div>
-				    		</div>
-				    		{% endif %}
+						    </div>
+							{% endif %}
 				    	{% endfor %}
 				    </div>
 				</div>

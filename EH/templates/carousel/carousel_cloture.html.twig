@@ -27,7 +27,16 @@
 						    <div class="col-md-3 mb-3">
 						        <div class="card hCard">
 						        	{% for cloture in clotures|reverse|slice(0, 1) %}
-						            	<img class="w-100 imgHeight" src="uploads/{{ cloture.images.toArray.0.name }}" alt="Card image cap">
+
+						        		{% if cloture.format == 'Paysage'%}
+							          		<img class="imgPaysage" src="uploads/{{ cloture.images.toArray.0.name }}" alt="Card image cap">
+							        		<p class="text-center">{{ cloture.description }}</p>
+							          	{% endif %}
+							          	{% if cloture.format == 'Portrait'%}
+							          		<img class="imgPortrait" src="uploads/{{ cloture.images.toArray.0.name }}" alt="Card image cap">
+							          		<p class="text-center">{{ cloture.description }}</p>
+							          	{% endif %}
+
 						            {% endfor %}
 						        </div>
 						    </div>
@@ -37,12 +46,20 @@
 						    <div class="carousel-item">
 							      <div class="col-md-3 mb-3">
 							        <div class="card hCard">
-							          <img class="w-100 imgHeight" src="/uploads/{{ cloture.images.toArray.0.name }}"
-							            alt="Card image cap">
+							        	
+							        	{% if cloture.format == 'Paysage'%}
+							          		<img class="imgPaysage" src="uploads/{{ cloture.images.toArray.0.name }}" alt="Card image cap">
+							        		<p class="text-center">{{ cloture.description }}</p>
+							          	{% endif %}
+							          	{% if cloture.format == 'Portrait'%}
+							          		<img class="imgPortrait" src="uploads/{{ cloture.images.toArray.0.name }}" alt="Card image cap">
+							          		<p class="text-center">{{ cloture.description }}</p>
+							          	{% endif %}
+							        
 							        </div>
 							      </div>
 						    </div>
-					    	{% endif %}
+							{% endif %}
 				    	{% endfor %}
 				    </div>
 				</div>

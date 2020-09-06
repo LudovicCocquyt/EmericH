@@ -27,19 +27,35 @@
 						    <div class="col-md-3 mb-3">
 						        <div class="card hCard">
 						        	{% for interieur in interieurs|reverse|slice(0, 1) %}
-						            	<img class="w-100 imgHeight" src="uploads/{{ interieur.images.toArray.0.name }}" alt="Card image cap">
+
+						        		{% if interieur.format == 'Paysage'%}
+							          		<img class="imgPaysage" src="uploads/{{ interieur.images.toArray.0.name }}" alt="Card image cap">
+							        		<p class="text-center">{{ interieur.description }}</p>
+							          	{% endif %}
+							          	{% if interieur.format == 'Portrait'%}
+							          		<img class="imgPortrait" src="uploads/{{ interieur.images.toArray.0.name }}" alt="Card image cap">
+							          		<p class="text-center">{{ interieur.description }}</p>
+							          	{% endif %}
+
 						            {% endfor %}
 						        </div>
 						    </div>
 					    </div>
-						
 						{% for interieur in interieurs|reverse|slice(1) %}
 							{% if interieur.images.toArray.0.name is defined %}
 						    <div class="carousel-item">
 							      <div class="col-md-3 mb-3">
 							        <div class="card hCard">
-							          <img class="w-100 imgHeight" src="uploads/{{ interieur.images.toArray.0.name }}"
-							            alt="Card image cap">
+							        	
+							        	{% if interieur.format == 'Paysage'%}
+							          		<img class="imgPaysage" src="uploads/{{ interieur.images.toArray.0.name }}" alt="Card image cap">
+							        		<p class="text-center">{{ interieur.description }}</p>
+							          	{% endif %}
+							          	{% if interieur.format == 'Portrait'%}
+							          		<img class="imgPortrait" src="uploads/{{ interieur.images.toArray.0.name }}" alt="Card image cap">
+							          		<p class="text-center">{{ interieur.description }}</p>
+							          	{% endif %}
+							        
 							        </div>
 							      </div>
 						    </div>
