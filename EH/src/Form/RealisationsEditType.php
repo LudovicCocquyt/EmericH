@@ -7,6 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
 
 
 class RealisationsEditType extends AbstractType
@@ -15,7 +17,7 @@ class RealisationsEditType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('description')
+            ->add('description', TextareaType::class)
             ->add('section', ChoiceType::class, [
                         'label'  => 'Type',
                         'choices'=> [
