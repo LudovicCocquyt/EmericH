@@ -13,7 +13,7 @@
         <a class="nav-link text-white smallFont" href="#galery">Réalisations</a>
         
         {% for StaticContent in StaticContents|slice(7) %}
-          {% if StaticContent.content == "Oui" %}
+          {% if StaticContent.content == "oui" %}
             <a class="nav-link text-white smallFont" href="#contact">Contact</a>
           {% endif %}
         {% endfor %}
